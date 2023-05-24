@@ -2,12 +2,13 @@ package com.example.dao;
 
 import com.example.domain.User;
 import java.sql.*;
+import java.util.Map;
 
-
+import static java.lang.System.getenv;
 
 public class UserDao {
 
-    private ConnectionMaker connectionMaker;
+    ConnectionMaker connectionMaker;
     public UserDao() {
         this.connectionMaker = new DConnectionMaker();
     }
@@ -18,7 +19,6 @@ public class UserDao {
         pstmt.setString(1, user.getId());
         pstmt.setString(2, user.getName());
         pstmt.setString(3, user.getPassword());
-
         pstmt.executeUpdate();
         pstmt.close();
         conn.close();
@@ -55,5 +55,8 @@ public class UserDao {
         System.out.println(selectedUser.getId());
         System.out.println(selectedUser.getName());
         System.out.println(selectedUser.getPassword());
+
+        User selectUser = userDao.get("2");
+        System.out.printf("%s %s %s",selectUser.getId(),selectUser.getName(),selectUser.getPassword());
     }
 }

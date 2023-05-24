@@ -1,6 +1,8 @@
 package com.example.dao;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+
 public interface ConnectionMaker {
-    Connection makeConnection();
+    Connection makeConnection() throws ClassNotFoundException, SQLException;
 }
