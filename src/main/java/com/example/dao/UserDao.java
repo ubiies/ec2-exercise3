@@ -2,14 +2,13 @@ package com.example.dao;
 
 import com.example.domain.User;
 import java.sql.*;
-import java.util.Map;
 
 import static java.lang.System.getenv;
 
 public class UserDao {
 
     ConnectionMaker connectionMaker;
-    public UserDao() {
+    public UserDao(ConnectionMaker connectionMaker) {
         this.connectionMaker = new DConnectionMaker();
     }
 
@@ -45,7 +44,7 @@ public class UserDao {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao userDao = new UserDao();
+        UserDao userDao = new UserDao(connectionMaker);
         User user = new User();
         user.setId("8");
         user.setName("kyeongrok8");
