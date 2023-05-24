@@ -6,9 +6,12 @@ import java.util.Map;
 
 import static java.lang.System.getenv;
 
-public class UserDao {
+public abstract class UserDao {
 
     private static Map<String, String> env = getenv();
+
+    public abstract Connection getConnection() throws SQLException, ClassNotFoundException;
+
     static class Env {
         static String dbHost = env.get("DB_HOST");
         static String dbUser = env.get("DB_USER");
