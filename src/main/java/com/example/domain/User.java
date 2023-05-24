@@ -1,6 +1,10 @@
 package com.example.domain;
 
 public class User {
+    private String id;
+    private String name;
+    private String password;
+
     public String getId() {
         return id;
     }
@@ -24,8 +28,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    String id;
-    String name;
-    String password;
 }
